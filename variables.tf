@@ -191,13 +191,8 @@ variable "volumes" {
   type = list(object({
     host_path = string
     name      = string
-    docker_volume_configuration = list(object({
-      autoprovision = bool
-      driver        = string
-      driver_opts   = map(string)
-      labels        = map(string)
-      scope         = string
-    }))
+    docker_volume_configuration = any
+    efs_volume_configuration = any
   }))
   description = "Task volume definitions as list of configuration objects"
   default     = []
